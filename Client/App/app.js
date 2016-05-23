@@ -7,7 +7,7 @@ angular.module('Flappy', [
 .config(function ($routeProvider) {
   $routeProvider
     .when('/play', {
-      templateUrl: '/Game/game.html',
+      templateUrl: '/App/Game/game.html',
       controller: 'GameController'
     })
 })
