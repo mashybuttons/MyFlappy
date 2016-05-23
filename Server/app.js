@@ -2,7 +2,9 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var path = require('path');
+var User = require('./config-mongo.js')
 var app = express();
+
 
 // var path = path.normalize(__dirname+'/../Client/index.html')
 // console.log(path)
@@ -18,8 +20,25 @@ app.get('/', function (req, res) {
 })
 
 app.post('/api/username', function(req, res) {
-  console.log("REQ.BODY", req.body)
-  res.send(req.body);
+  var username = req.body.username
+  User.findOne({username: username})
+    .then(function(user) {
+      if(!user) {
+        User.create({username: username})
+          .then(function(created) {
+            console.log(created, " user created")
+            res.send(user)
+          })
+      } else {
+        console.log(user)
+        res.send(user)
+      }
+    })
+    .catch(function(err) {
+      res.status(404).send('BAD REQUEST')
+    })
 
 })
 app.listen(3000)
+
+module.exports = app;
