@@ -17,28 +17,37 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+  > Flappybird!
+  Name the product in a way the reader (i.e. your target customers) will understand.
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  > For everyone who loves to play Flappybird.
+  Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  > Flappybird on a single page app. Play Flappybird with your mouse, try not to get crushed! 
+  Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
 
 ## Problem ##
-  > Describe the problem your product solves.
+  > Flappybird no longer available on iOS? Android?
+  Describe the problem your product solves.
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+  >  No worries, play directly in your browser.
+  Describe how your product elegantly solves the problem.
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+  > I love Flappybird!
+  A quote from a spokesperson in your company.
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+  > Just load up the index.html.
+  Describe how easy it is to get started.
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  > Playing this game was an awesome 5 seconds of my life. 
+  Provide a quote from a hypothetical customer that describes how they experienced the benefit.
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+  > If you love this app, try the real thing!
+  Wrap it up and give pointers where the reader should go next.
