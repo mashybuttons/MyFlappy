@@ -1,7 +1,7 @@
 <div class='container' ng-controller='GameController'>
-  <form name="userForm" ng-submit='updateUsername()'>
-    <input name='userInput' type='text' ng-model='user.username' placeholder='Type your username'>
-    <button>Submit</button>
+  <form class='form-group' name="userForm" ng-submit='updateUsername()'>
+    <input class='form-inline' name='userInput' type='text' ng-model='user.username' placeholder='Type your username'>
+    <button  class="btn btn-primary form-inline">Submit</button>
   </form>
   <h1>Current User: {{user.username}} </h1>
   <div class="board">

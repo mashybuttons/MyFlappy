@@ -5,8 +5,13 @@ var settings = {
 var mouse = { x: settings.w / 2, y: settings.h / 2 };
 console.log(settings.h/4)
 var board = d3.select('.board')
-  .style({height:settings.h + "px", width:settings.w + "px"})
-  .style({'border': '5px solid black', position: 'relative'});
+  .style({
+  	height:settings.h + "px", 
+  	width:settings.w + "px",
+  	'border': '5px solid black',
+  	'background': 'url("../styles/background.png")',
+  	 position: 'relative'
+  });
 
 var createPipe = board.select('#pipe1')
   .style({
@@ -73,6 +78,7 @@ var detectCollision = function (pipe1, pipe2) {
 
 	var x = mouse.x;
 	var y = mouse.y;
+	
 	if(pipeX < x+80 && x+20 < pipeX+300) {
 		if(y+20 < pipeHeight) {
 			d3.select('.mouse').transition().duration(1000).ease('cubic')
@@ -80,7 +86,6 @@ var detectCollision = function (pipe1, pipe2) {
 					top: settings.h-80 + 'px',
 					left: 300 + 'px'
 				})		
-			board.style('background-color', 'red')
 			console.log("bird hit pipe1")
 		}
 		if(y+80 > settings.h - pipeHeight) {
@@ -89,7 +94,6 @@ var detectCollision = function (pipe1, pipe2) {
 					top: settings.h-80 + 'px',
 					left: 300 + 'px' 
 				})			
-			board.style('background-color', 'red')
 			console.log("bird hit pipe2")
 		}
 	}
