@@ -1,7 +1,12 @@
-<div id='container' ng-controller='GameController'>
+<div class='container' ng-controller='GameController'>
   <form name="userForm" ng-submit='updateUsername()'>
-    <input name='userInput' type='text' ng-model='user' placeholder='username'>
+    <input name='userInput' type='text' ng-model='user.username' placeholder='Type your username'>
     <button>Submit</button>
-
-    {{user}}
+  </form>
+  <h1>Current User: {{user.username}} </h1>
+  <div class="board">
+        <div class="mouse"></div> 
+        <div id='pipe1' class="pipe"></div>
+        <div id='pipe2' class="pipe"></div>
+  </div>
 </div>

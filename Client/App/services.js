@@ -18,7 +18,8 @@ angular.module('Flappy.http', [])
         url: 'api/username',
         data: data
       }).then(function success(resp) {
-        console.log("post success", resp)
+        console.log("POSTED", resp)
+        return resp
       })
       .catch(function(err) {
         console.log("did not post", err)
