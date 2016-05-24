@@ -8,12 +8,29 @@ angular.module('Flappy.game', [])
     http.post($scope.user)
     .then(function (result) {
       console.log("IM HERE", result.data)
-      $scope.user.username = "Welcome back from the server " + result.data.username;
+      $scope.user.currentname = "Welcome back from the server " + result.data.username;
+      $scope.user.username = "";
     })
     .catch(function(err) {
       console.log(err)
     })
   }
+
+  $scope.randomMouse = function() {
+      var gifArr = [
+        'url("../styles/duck.gif")',
+        'url("../styles/doge.gif")',
+        'url("../styles/duck.gif")',
+        'url("../styles/cat.gif")'
+        ]
+
+      var randomIndex = gifArr[(Math.floor(Math.random()*gifArr.length))]
+     $('.mouse').css({
+      'background': randomIndex + "no-repeat",
+      'background-size': '100px 100px'
+      });
+  }
+
 
   $scope.loadScript = function (url, type, charset) {
     var head = document.querySelector('head');

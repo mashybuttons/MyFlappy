@@ -3,7 +3,10 @@
     <input class='form-inline' name='userInput' type='text' ng-model='user.username' placeholder='Type your username'>
     <button  class="btn btn-primary form-inline">Submit</button>
   </form>
-  <h1>Current User: {{user.username}} </h1>
+  <form class='form-group' ng-submit='randomMouse()'>
+    <button  class="btn btn-primary form-inline">Randomize!</button>
+  </form>
+  <h1>Current User: {{user.currentname}} </h1>
   <div class="board">
         <div class="mouse"></div> 
         <div id='pipe1' class="pipe"></div>
