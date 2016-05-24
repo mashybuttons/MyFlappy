@@ -10,9 +10,7 @@
 }
 
 .birdJumbo {
-  
   vertical-align:middle;
-
 
 }
 
@@ -33,8 +31,11 @@
 
 .jumbotron {
   background-color: #1faede;
+  padding: 0;
 }
-
+form {
+  margin: 10px 0;
+}
 .birdJumbo{
   animation: animationFrames ease 1s;
   animation-iteration-count: 1;
