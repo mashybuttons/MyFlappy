@@ -1,6 +1,6 @@
 var settings = {
-	w: window.innerWidth,
-	h: window.innerHeight
+	w: window.innerWidth*(0.8),
+	h: window.innerHeight*(0.78)
 }
 var mouse = { x: settings.w / 2, y: settings.h / 2 };
 // var momentum = [0, 0];
@@ -11,39 +11,70 @@ var board = d3.select('.board')
   	width:settings.w + "px",
   	'border': '5px solid black',
   	'background': 'url("../styles/background.png") no-repeat',
+    'background-size': 'stretch auto',
+    'background-position': '50% 75%',
   	 position: 'relative'
   });
 
 var createPipe = board.select('#pipe1')
   .style({
-  	top: 0,
-  	left: ((settings.w - 300)/2)+"px",
-  	width: '300px',
+  	top: '-30 px',
+  	left: ((settings.w - 150)/2)+"px",
+  	width: '150px',
   	height: (settings.h/4)+"px",
-	background: 'url("../styles/pipe1.png") no-repeat center',
-	'background-size': '100%',
-	position: 'absolute' 	
+  	background: 'url("../styles/pipe1-trans.png") no-repeat',
+  	'background-size': '100% auto',
+    'background-position': 'center bottom',
+  	position: 'absolute' 	
   });
 
-var createPipe2 = board.select('#pipe2')
+
+  var createPipe2 = board.select('#pipe2')
   .style({
   	bottom: 0,
-  	left: ((settings.w - 300)/2)+"px",
-  	width: '300px',
+  	left: ((settings.w - 150)/2)+"px",
+  	width: '150px',
   	height: (settings.h/4)+"px",
-	background: 'url("../styles/pipe2.png") no-repeat center',
-	'background-size': '100%',
-	position: 'absolute' 	
+	  background: 'url("../styles/pipe2-trans.png") no-repeat',
+	  'background-size': '100% auto',
+    'background-position': 'center top',
+ 	  position: 'absolute' 	
+  });
+   var createPipe3 = board.select('#pipe3')
+  .style({
+    top: '-30 px',
+    left: ((settings.w - 150)/6)+"px",
+    width: '150px',
+    height: (settings.h/2.2)+"px",
+    background: 'url("../styles/pipe1-trans.png") no-repeat',
+    'background-size': '100% auto',
+    'background-position': 'center bottom',
+    position: 'absolute'  
   });
 
-var pipes = board.selectAll('.pipe')
-var movePipes = function () {
+  var createPipe4 = board.select('#pipe4')
+  .style({
+    bottom: 0,
+    left: ((settings.w - 150)/1.2)+"px",
+    width: '150px',
+    height: (settings.h/2.2)+"px",
+    background: 'url("../styles/pipe2-trans.png") no-repeat',
+    'background-size': '100% auto',
+    'background-position': 'center top',
+    position: 'absolute'  
+  });
+
+ 
+
+
+var pipes = board.selectAll('.pipe1, .pipe2')
+var movePipes1 = function () {
 	pipes.transition().duration(1000).ease('cubic')
 		.style({height:(settings.h/4)+"px"})
 		.each('end', function() {
 			d3.select(this).transition().duration(1000).ease('cubic')
 				.style({height:(settings.h/2)+"px"})
-				.each('end', function() {movePipes()})
+				.each('end', function() {movePipes1()})
 		})
 }
 
@@ -60,14 +91,14 @@ var bird = d3.select('.mouse')
 	})
 
 //MY OWN MOUSE MOVEMENT
-// board.on('mousemove', function() {
-// 	var loc = d3.mouse(this);
-// 	mouse = {x: loc[0], y:loc[1]};
-// 	d3.select('.mouse').style({
-// 		top: mouse.y +'px',
-// 		left: mouse.x+'px'
-// 	})
-// })
+board.on('mousemove', function() {
+	var loc = d3.mouse(this);
+	mouse = {x: loc[0], y:loc[1]};
+	d3.select('.mouse').style({
+		top: mouse.y +'px',
+		left: mouse.x+'px'
+	})
+})
 //MY ATTEMPT AT KEYBOARD MOVEMENT
 // d3.select('body').on("keydown", function() {
 //   event.preventDefault();
@@ -90,40 +121,40 @@ var bird = d3.select('.mouse')
 
 
 
-  var moveDiv = d3.select('.mouse');
-      window.onkeydown = function(e) {
-        console.log("IM MOVING")
-        e.preventDefault();
-        if (!e)
-        {
-          e = window.event;
-        }
-        var keyCode;
-        // pixel wise speed variable
-        var speed = 3;       
-        if(e.which) {
-          keyCode = e.which;
-        } else {
-          keyCode = e.keyCode;
-        }
-        if(moveDiv.style('left') === 'auto') {
-          moveDiv.style('left', '50px')
-        }
-        if(moveDiv.style('top') === 'auto') {
-          moveDiv.style('top', '50px')
-        }
+  // var moveDiv = d3.select('.mouse');
+  //     window.onkeydown = function(e) {
+  //       console.log("IM MOVING")
+  //       e.preventDefault();
+  //       if (!e)
+  //       {
+  //         e = window.event;
+  //       }
+  //       var keyCode;
+  //       // pixel wise speed variable
+  //       var speed = 3;       
+  //       if(e.which) {
+  //         keyCode = e.which;
+  //       } else {
+  //         keyCode = e.keyCode;
+  //       }
+  //       if(moveDiv.style('left') === 'auto') {
+  //         moveDiv.style('left', '50px')
+  //       }
+  //       if(moveDiv.style('top') === 'auto') {
+  //         moveDiv.style('top', '50px')
+  //       }
 
-    //increment/decrement the top or left of the div based on the arrow key movements
-        if(keyCode === 37) {
-          moveDiv.style({left: (parseInt(moveDiv.style('left'), 10) - speed) + 'px'});
-        } else if (keyCode === 38) {
-          moveDiv.style({top:(parseInt(moveDiv.style('top'), 10) - speed) + 'px'});
-        } else if (keyCode === 39) {
-          moveDiv.style({left: (parseInt(moveDiv.style('left'), 10) + speed) + 'px'});
-        } else if (keyCode === 40) {
-          moveDiv.style({top: (parseInt(moveDiv.style('top'), 10) + speed) + 'px'});
-        }
-      };
+  //   //increment/decrement the top or left of the div based on the arrow key movements
+  //       if(keyCode === 37) {
+  //         moveDiv.style({left: (parseInt(moveDiv.style('left'), 10) - speed) + 'px'});
+  //       } else if (keyCode === 38) {
+  //         moveDiv.style({top:(parseInt(moveDiv.style('top'), 10) - speed) + 'px'});
+  //       } else if (keyCode === 39) {
+  //         moveDiv.style({left: (parseInt(moveDiv.style('left'), 10) + speed) + 'px'});
+  //       } else if (keyCode === 40) {
+  //         moveDiv.style({top: (parseInt(moveDiv.style('top'), 10) + speed) + 'px'});
+  //       }
+  //     };
 
 //MOVEMENT FOR BIRDY
 
@@ -197,40 +228,73 @@ var bird = d3.select('.mouse')
 //     momentum[0] *= 0.9;
 //     momentum[1] *= 0.9;
 // });
+var detectCollision2 = function (pipe4) {
+  var collision = false;
 
 
+  pipe4 = d3.selectAll('.pipe')[0][3]
 
-var detectCollision = function (pipe1, pipe2) {
+  var pipeStaticHeight = (settings.h/2.2)
+  var pipeStaticLeft4 = pipe4.offsetLeft
+  var x = mouse.x;
+  var y = mouse.y;
+  if((pipeStaticLeft4 < x+80 && x-80 < pipeStaticLeft4+150)) {
+    if(y+80 > settings.h - pipeStaticHeight) {
+      d3.select('.mouse').transition().duration(1000).ease('cubic')
+        .style({
+          top: settings.h-80 + 'px',
+          left: 20 + 'px'
+        })    
+      console.log("bird hit pipe 4")
+    }
+  }
+}
+
+var detectCollision = function (pipe1, pipe2, pipe3, pipe4) {
 	var collision = false;
 
 	pipe1 = d3.selectAll('.pipe')[0][0]
-	pipe2 = d3.selectAll('.pipe')[0][1]
+  pipe2 = d3.selectAll('.pipe')[0][1]
+  pipe3 = d3.selectAll('.pipe')[0][2]
+	pipe4 = d3.selectAll('.pipe')[0][3]
 
 	var pipeX = pipe1.offsetLeft;
 	var pipeHeight = pipe1.clientHeight;
+  var pipeStaticHeight = (settings.h/2.2)
+  var pipeStaticLeft3 = pipe3.offsetLeft
+  var pipeStaticLeft4 = pipe4.offsetLeft
+  var x = mouse.x;
+  var y = mouse.y;
+  console.log(pipeStaticLeft4, x+80)
 
-	var x = mouse.x;
-	var y = mouse.y;
-	
-	if(pipeX < x+80 && x+20 < pipeX+300) {
-		if(y+20 < pipeHeight) {
-			// d3.select('.mouse').transition().duration(1000).ease('cubic')
-			// 	.style({
-			// 		top: settings.h-80 + 'px',
-			// 		left: 300 + 'px'
-			// 	})		
-			console.log("bird hit pipe1")
-		}
-		if(y+80 > settings.h - pipeHeight) {
-			// d3.select('.mouse').transition().duration(1000).ease('cubic')
-			// 	.style({
-			// 		top: settings.h-80 + 'px',
-			// 		left: 300 + 'px' 
-			// 	})			
-			console.log("bird hit pipe2")
-		}
-	}
+	if(pipeX < x+80 && x+20 < pipeX+150) {
+   if(y+20 < pipeHeight) {
+     d3.select('.mouse').transition().duration(1000).ease('cubic')
+       .style({
+         top: settings.h-80 + 'px',
+         left: 20 + 'px'
+       })    
+     console.log("bird hit pipe1")
+   } else if(y+80 > settings.h - pipeHeight) {
+     d3.select('.mouse').transition().duration(1000).ease('cubic')
+       .style({
+         top: settings.h-80 + 'px',
+         left: 20 + 'px' 
+       })      
+     console.log("bird hit pipe2")
+    }
+  } 
+  if((pipeStaticLeft3 < x+80 && x+20 < pipeStaticLeft3+150)) {
+    if(y+20 < pipeStaticHeight) {
+      d3.select('.mouse').transition().duration(1000).ease('cubic')
+        .style({
+          top: settings.h-80 + 'px',
+          left: 20 + 'px'
+        })    
+      console.log("bird hit pipe 3")
+    } 
+  }
 }
-
+d3.timer(detectCollision2)
 d3.timer(detectCollision)
-movePipes()
+movePipes1()
