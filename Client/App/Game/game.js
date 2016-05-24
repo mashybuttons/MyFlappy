@@ -32,6 +32,13 @@ angular.module('Flappy.game', [])
       .catch(function(err) {
         console.log(err, "didnt get gifs")
       })
+     //  var gifArr = [
+     //    'url("../styles/duck.gif")',
+     //    'url("../styles/doge.gif")',
+     //    'url("../styles/flappy.gif")',
+     //    'url("../styles/cat.gif")'
+     //    ]
+
     
   }
 
