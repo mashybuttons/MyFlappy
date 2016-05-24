@@ -111,9 +111,7 @@ var detectCollision2 = function (pipe4) {
   var x = mouse.x;
   var y = mouse.y;
   if((pipeStaticLeft4 < x+80 && x+20 < pipeStaticLeft4+150)) {
-    console.log("in pipe 4 left")
     if(y+80 > settings.h - pipeStaticHeight) {
-      console.log("in pipe 4 top")
       collision = true;
       d3.select('.mouse').transition().duration(1000).ease('cubic')
         .style({

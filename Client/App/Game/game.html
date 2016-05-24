@@ -1,12 +1,12 @@
 <div class='container' ng-controller='GameController'>
   <form class='form-group' name="userForm" ng-submit='updateUsername()'>
     <input class='form-inline' name='userInput' type='text' ng-model='user.username' placeholder='Type your username'>
-    <button  class="btn btn-primary form-inline">Submit</button>
+    <button ng-click='unHide()' class="btn btn-primary form-inline">Submit</button>
   </form>
   <button  ng-click='randomMouse()' class="btn btn-primary button2">Randomize!</button>
 
-  <h1>Current User: {{user.currentname}} </h1>
-  <div class="board container-fluid">
+  <h1>{{message}} {{user.currentname}} </h1>
+  <div ng-hide='hideme' class="board container-fluid">
         <div class="mouse"></div> 
         <div id='pipe1' class="pipe pipe1"></div>
         <div id='pipe2' class="pipe pipe2"></div>

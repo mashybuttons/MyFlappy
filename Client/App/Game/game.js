@@ -3,12 +3,14 @@ angular.module('Flappy.game', [])
 .controller('GameController', function($scope, http, $window) {
   $scope.gifArr = [];
   $scope.user = {};
+  $scope.message = "Enter username to play"
   $scope.updateUsername = function() {
     console.log($scope.user)
     http.post($scope.user)
     .then(function (result) {
       console.log("IM HERE", result.data)
-      $scope.user.currentname = "Welcome back from the server " + result.data.username;
+      $scope.user.currentname = result.data.username;
+      $scope.message= 'Welcome'
       $scope.user.username = "";
     })
     .catch(function(err) {
@@ -42,6 +44,11 @@ angular.module('Flappy.game', [])
     
   }
 
+  $scope.hideme = true;
+
+  $scope.unHide = function(){
+    $scope.hideme = false;
+  }
 
   $scope.loadScript = function (url, type, charset) {
     var head = document.querySelector('head');
