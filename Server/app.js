@@ -44,7 +44,7 @@ app.post('/api/username', function(req, res) {
         User.create({username: username})
           .then(function(created) {
             console.log(created, " user created")
-            res.send(user)
+            res.send(created)
           })
       } else {
         console.log(user)
