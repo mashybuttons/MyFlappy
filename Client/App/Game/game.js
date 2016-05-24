@@ -1,7 +1,7 @@
 angular.module('Flappy.game', [])
 
 .controller('GameController', function($scope, http, $window) {
-  $scope.gameData = [];
+  $scope.gifArr = [];
   $scope.user = {};
   $scope.updateUsername = function() {
     console.log($scope.user)
@@ -17,18 +17,22 @@ angular.module('Flappy.game', [])
   }
 
   $scope.randomMouse = function() {
-      var gifArr = [
-        'url("../styles/duck.gif")',
-        'url("../styles/doge.gif")',
-        'url("../styles/duck.gif")',
-        'url("../styles/cat.gif")'
-        ]
 
-      var randomIndex = gifArr[(Math.floor(Math.random()*gifArr.length))]
-     $('.mouse').css({
-      'background': randomIndex + "no-repeat",
-      'background-size': '100px 100px'
-      });
+    http.get()
+      .then(function(result) {
+        console.log(result)
+        console.log(result[(Math.floor(Math.random()*result.length))].url) 
+        var randomIndex = result[(Math.floor(Math.random()*result.length))].url
+         $('.mouse').css({
+          'background': randomIndex + "no-repeat",
+          'background-size': '100px 100px'
+          });
+        $scope.gifArr = result
+      })
+      .catch(function(err) {
+        console.log(err, "didnt get gifs")
+      })
+    
   }
 
 

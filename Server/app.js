@@ -2,7 +2,8 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var path = require('path');
-var User = require('./config-mongo.js')
+var User = require('./config-mongo.js').User;
+var Gif = require('./config-mongo.js').Gif;
 var app = express();
 
 
@@ -17,6 +18,22 @@ app.use(bodyParser.json());
 
 app.get('/', function (req, res) {
   res.render('/index.html')
+})
+
+app.get('/api/random', function (req, res) {
+  Gif.find()
+    .then(function(gifs) {
+      if(!gifs) {
+        console.log("NO GIFS")
+        res.send(gifs)
+      } else {
+        res.send(gifs)
+      }
+    })
+    .catch(function(err) {
+      res.status(404).send('BAD REQUEST')
+    })
+
 })
 
 app.post('/api/username', function(req, res) {

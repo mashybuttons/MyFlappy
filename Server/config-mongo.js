@@ -17,4 +17,18 @@ var UserSchema = new mongoose.Schema({
   }
 })
 
-module.exports = mongoose.model('users', UserSchema);
+var gifSchema = new mongoose.Schema({
+  url:  {
+    type: String,
+  }
+})
+
+
+
+var User = mongoose.model('users', UserSchema)
+var Gif = mongoose.model('gifs', gifSchema)
+
+module.exports = {
+  User: User,
+  Gif: Gif
+}

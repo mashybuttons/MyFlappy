@@ -4,9 +4,10 @@ angular.module('Flappy.http', [])
     var get = function () {
       return $http({
         method: 'GET',
-        url: 'api/"SOMETHING"'
-      }).then(function success(resp) {
-        console.log(resp)
+        url: 'api/random'
+      }).then(function success(res) {
+        console.log("THIS IS FACTORY RES", res.data)
+        return res.data
       }, function err(err) {
         console.log(err)
       });
