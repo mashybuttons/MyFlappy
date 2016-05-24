@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/shortly')
+mongoose.connect('mongodb://localhost/flappy')
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
@@ -34,7 +34,12 @@ var Gif = mongoose.model('gifs', gifSchema)
         {url: 'url("../styles/duck.gif")'},
         {url: 'url("../styles/doge.gif")'},
         {url: 'url("../styles/flappy.gif")'},
-        {url: 'url("../styles/cat.gif")'}
+        {url: 'url("../styles/cat.gif")'},
+        {url: 'url("../styles/bmo.gif")'},
+        {url: 'url("../styles/corgi.gif")'},
+        {url: 'url("../styles/pikachu.gif")'},
+        {url: 'url("../styles/kirby.gif")'}
+
       ]
 
 Gif.collection.insert(gifArr, function(err, docs) {
