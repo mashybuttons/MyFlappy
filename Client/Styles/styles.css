@@ -1,6 +1,84 @@
-.button1 {
-  margin: 20px 0;
+@font-face {
+  font-family: flappyFont;
+  src: url('flappyFont.ttf');
+
 }
+
+
 .button2 {
   float: right;
 }
+
+.birdJumbo {
+  
+  vertical-align:middle;
+
+
+}
+
+#Jumbo{
+  font-family: flappyFont;
+  color: white;
+  text-align: center;
+  font-size: 63px; 
+  max-width: 80%;
+  display:inline-block;
+  vertical-align:middle;
+  text-shadow:
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
+}
+
+.jumbotron {
+  background-color: #1faede;
+}
+
+.birdJumbo{
+  animation: animationFrames ease 1s;
+  animation-iteration-count: 1;
+  transform-origin: 50% 50%;
+  -webkit-animation: animationFrames ease 1s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-transform-origin: 50% 50%;
+}
+
+@keyframes animationFrames{
+  0% {
+    opacity:0;
+    transform:  translate(-1500px,0px)  ;
+  }
+  60% {
+    opacity:1;
+    transform:  translate(30px,0px)  ;
+  }
+  80% {
+    transform:  translate(-10px,0px)  ;
+  }
+  100% {
+    opacity:1;
+    transform:  translate(0px,0px)  ;
+  }
+}
+
+@-webkit-keyframes animationFrames {
+  0% {
+    opacity:0;
+    -webkit-transform:  translate(-1500px,0px)  ;
+  }
+  60% {
+    opacity:1;
+    -webkit-transform:  translate(30px,0px)  ;
+  }
+  80% {
+    -webkit-transform:  translate(-10px,0px)  ;
+  }
+  100% {
+    opacity:1;
+    -webkit-transform:  translate(0px,0px)  ;
+  }
+}
+
+
+

@@ -10,9 +10,13 @@
   <title>Flappy Bird!</title>
 </head>
 <body>
-  <div class='container'>
-  <a href='#/play'>
-    <button type="button" class="btn btn-success button1">Play!</button>
+  <div class='container' ng-controller='AppController'>
+    <div class='jumbotron' ng-hide='hideme'>
+      <h1 id='Jumbo'>My Flappy</h1>
+      <img class='birdJumbo' src='/Styles/flappy.gif'>
+    </div>
+  <a href='#/play' ng-click='hideIt()'>
+    <button ng-hide='hideme' type="button" class="btn btn-success button1">Play!</button>
   </a>
   </div>
   <div ng-view></div>

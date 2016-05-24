@@ -11,3 +11,12 @@ angular.module('Flappy', [
       controller: 'GameController'
     })
 })
+
+.controller('AppController', function($scope) {
+  $scope.hideme = false;
+
+  $scope.hideIt = function(){
+    $scope.hideme = true;
+  }
+
+})
