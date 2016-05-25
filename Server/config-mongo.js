@@ -38,7 +38,9 @@ var Gif = mongoose.model('gifs', gifSchema)
         {url: 'url("../styles/bmo.gif")'},
         {url: 'url("../styles/corgi.gif")'},
         {url: 'url("../styles/pikachu.gif")'},
-        {url: 'url("../styles/kirby.gif")'}
+        {url: 'url("../styles/kirby.gif")'},
+        {url: 'url("../styles/pony.gif")'},
+        {url: 'url("../styles/donut.gif")'}
 
       ]
 
