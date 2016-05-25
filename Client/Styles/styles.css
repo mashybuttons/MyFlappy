@@ -9,9 +9,9 @@
   float: right;
 }
 
-.birdJumbo {
+.birdJumbo, .otherJumbo {
   vertical-align:middle;
-
+  max-width: 20%;
 }
 
 #Jumbo{
@@ -36,7 +36,7 @@
 form {
   margin: 10px 0;
 }
-.birdJumbo{
+.birdJumbo, .otherJumbo {
   animation: animationFrames ease 1s;
   animation-iteration-count: 1;
   transform-origin: 50% 50%;
